@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>changing locking screen orientation in ionic application | Kai Zhang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Changing &amp;amp; Locking Screen Orientation In Ionic Application
+PREPARATION
+Before we can start make sure you have everything configured correctly.
+You will need to have these:
+Android Environment (or">
+<meta property="og:type" content="article">
+<meta property="og:title" content="changing locking screen orientation in ionic application">
+<meta property="og:url" content="http://rainygoblin.github.io/2016/12/26/2016/12/changing-locking-screen-orientation-in-ionic-application/index.html">
+<meta property="og:site_name" content="Kai Zhang">
+<meta property="og:description" content="Changing &amp;amp; Locking Screen Orientation In Ionic Application
+PREPARATION
+Before we can start make sure you have everything configured correctly.
+You will need to have these:
+Android Environment (or">
+<meta property="og:updated_time" content="2017-03-09T02:57:18.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="changing locking screen orientation in ionic application">
+<meta name="twitter:description" content="Changing &amp;amp; Locking Screen Orientation In Ionic Application
+PREPARATION
+Before we can start make sure you have everything configured correctly.
+You will need to have these:
+Android Environment (or">
+    
+
+    
+        <link rel="alternate" href="/" title="Kai Zhang" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+        <script type="text/javascript">
+(function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-89061953-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+    
+    
+    
+        <script>
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?324aa6ecfd94d7bc28563d5bf7904093";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">Kai Zhang</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+                    <a class="main-nav-link" href="/categories">Categories</a>
+                
+                    <a class="main-nav-link" href="/tags">Tags</a>
+                
+                    <a class="main-nav-link" href="/about">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.png" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/categories">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/tags">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/about">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.png" />
+            <h2 id="name">Kai Zhang</h2>
+            <h3 id="title">Healthcare System Developer &amp; Designer</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Shanghai, China</span>
+            <a id="follow" target="_blank" href="https://github.com/rainygoblin/">FOLLOW</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                19
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                29
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="http://github.com/rainygoblin" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://twitter.com/zhanggongkai" target="_blank" title="twitter" class=tooltip>
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.facebook.com/zhanggongkai" target="_blank" title="facebook" class=tooltip>
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://dribbble.com/zhanggongkai" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-2016/12/changing-locking-screen-orientation-in-ionic-application" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            changing locking screen orientation in ionic application
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2016/12/26/2016/12/changing-locking-screen-orientation-in-ionic-application/">
+            <time datetime="2016-12-26T12:39:16.000Z" itemprop="datePublished">2016-12-26</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Ionic-2/">Ionic 2</a>, <a class="tag-link" href="/tags/orientation/">orientation</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><a href="http://www.gajotres.net/changing-locking-screen-orientation-in-ionic-application/" target="_blank" rel="external">Changing &amp; Locking Screen Orientation In Ionic Application</a></p>
+<p>PREPARATION</p>
+<p>Before we can start make sure you have everything configured correctly.</p>
+<p>You will need to have these:</p>
+<p>Android Environment (or iOS if your working on a MacOS)<br>nodeJS<br>Ionic<br>Cordova<br>In case you don’t have a properly configured development environment take a look at this article: Ionic Framework | Installation Guide.</p>
+<ol>
+<li>UPDATE IONIC &amp; CORDOVA</li>
+</ol>
+<p>Don’t forget to update Ionic and Cordova, older versions may not work with this tutorial:</p>
+<p>1<br>npm update -g cordova ionic</p>
+<ol>
+<li>CREATE A NEW PROJECT</li>
+</ol>
+<p>ionic start IonicOrientationDemo blank<br>cd IonicOrientationDemo</p>
+<p>Warning: Since a few of my readers never worked with Ionic CLI. From this point and further, every time I tell you to execute something, do that inside a project folder.</p>
+<p>At this point, we need to upgrade IonicOrientationDemo project with an appropriate platform. Because I’m using Windows we’re going to create an Android application:</p>
+<p>1<br>ionic platform add android</p>
+<p>if you’re a MacOS user, create an iOS application like this:<br>1<br>ionic platform add ios</p>
+<ol>
+<li>INSTALL SCREEN ORIENTATION PLUGIN</li>
+</ol>
+<p>Next, we need to import and install screen orientation plugin into a newly created project:</p>
+<p>1<br>cordova plugin add net.yoik.cordova.plugins.screenorientation</p>
+<p>GITHUB</p>
+<p>DEVELOPMENT</p>
+<p>At this point, you should have everything set up and ready, we can begin.</p>
+<p>Go to IonicOrientationDemo project directory and open main index.html file, add a controller to ion-content directive, like this:</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7</p>
+<p><ion-pane><br>    <ion-header-bar class="bar-stable"><br>      <h1 class="title">Ionic Blank Starter</h1><br>    </ion-header-bar><br>    <ion-content ng-controller="MainCtrl"><br>    </ion-content><br>  </ion-pane></p>
+<p>Initialize this controller in app.js file:</p>
+<p>1<br>2<br>3<br>app.controller(‘MainCtrl’, function($scope) {</p>
+<p>});</p>
+<p>Now add these two buttons:</p>
+<p>1<br>2</p>
+<p><button class="button button-full button-positive " ng-click="changeOriantationLandspace()">Change To Landspace Mode</button><br></p>
+<p><button class="button button-full button-positive " ng-click="changeOriantationPortrait ()">Change To Portrait Mode</button><br></p>
+<p>And for a final touch, we’re going to change page orientation depending on a selected button:</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>app.controller(‘MainCtrl’, function($scope) {<br>    document.addEventListener(“deviceready”, onDeviceReady, false);<br>    function onDeviceReady()<br>    {<br>        $scope.changeOriantationLandspace = function() {<br>            screen.lockOrientation(‘landscape’);<br>        }</p>
+<pre><code>    $scope.changeOriantationPortrait = function() {
+        screen.lockOrientation(&apos;portrait&apos;);
+    }   
+}
+</code></pre><p>});</p>
+<p>This much code should be enough for a skeleton application, just a bare minimum. In the next chapter, I will show you how this application looks.</p>
+<p>Our final application should look like this:</p>
+<p>HTML</p>
+<p>Application main page (index.html).</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>&lt;!DOCTYPE html&gt;</p>
+<html><br>    <head><br>        <meta charset="utf-8"><br>        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"><br>        <title></title><br><br>        <link href="lib/ionic/css/ionic.css" rel="stylesheet"><br>        <link href="css/style.css" rel="stylesheet"><br><br>        <!-- ionic/angularjs js --><br>        <script src="lib/ionic/js/ionic.bundle.js"></script><br><br>        <!-- cordova script (this will be a 404 during development) --><br>        <script src="cordova.js"></script><br><br>        <!-- your app's js --><br>        <script src="js/app.js"></script><br>    </head><br>    <body ng-app="starter"><br><br>        <ion-pane><br>            <ion-content ng-controller="MainCtrl" padding="true"><br>                <button class="button button-full button-positive " ng-click="changeOriantationLandspace()">Change To Landspace Mode</button><br><br>                <button class="button button-full button-positive " ng-click="changeOriantationPortrait ()">Change To Portrait Mode</button><br><br>            </ion-content><br>        </ion-pane><br><br>    </body><br></html>
+
+<p>JAVASCRIPT</p>
+<p>Application JavaScript file (app.js).</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>// Ionic Starter App</p>
+<p>// angular.module is a global place for creating, registering and retrieving Angular modules<br>// ‘starter’ is the name of this angular module example (also set in a <body> attribute in index.html)<br>// the 2nd parameter is an array of ‘requires’<br>var app = angular.module(‘starter’, [‘ionic’])</body></p>
+<p>.run(function($ionicPlatform) {<br>  $ionicPlatform.ready(function() {<br>    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard<br>    // for form inputs)<br>    if(window.cordova &amp;&amp; window.cordova.plugins.Keyboard) {<br>      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);<br>    }<br>    if(window.StatusBar) {<br>      StatusBar.styleDefault();<br>    }<br>  });<br>});</p>
+<p>app.controller(‘MainCtrl’, function($scope) {<br>    document.addEventListener(“deviceready”, onDeviceReady, false);<br>    function onDeviceReady()<br>    {<br>        $scope.changeOriantationLandspace = function() {<br>            screen.lockOrientation(‘landscape’);<br>        }</p>
+<pre><code>    $scope.changeOriantationPortrait = function() {
+        screen.lockOrientation(&apos;portrait&apos;);
+    }   
+}
+</code></pre><p>});</p>
+<p>A warning, if you want to change a first page orientation (during the initial initialization), make sure to have a splash screen. Cordova device ready event may or may not trigger before Ionic application is active, so there’s a good chance application will start in portrait mode then visibly switch to landscape mode.</p>
+<p>DEPLOYMENT</p>
+<p>Next step, we need to build our application:</p>
+<p>1<br>ionic build android</p>
+<p>Be careful here, this step may break if you’re behind a firewall. The first execution will take a long time, so be patient.</p>
+<p>When this step ends, look at the output log, last two lines should look something like this:</p>
+<p>1<br>2<br>Built the following apk(s):<br>    D:\Development\IonicProject\platforms\android\build\outputs\apk\android-debug.apk</p>
+<p>We’ll use the last line location to deploy our application. Make sure your smartphone is prepared to accept an incoming application. In case of Android platform, you must enable Developer Options and USB debugging.</p>
+<p>Do this:</p>
+<p>1<br>adb install -r platforms\android\build\outputs\apk\android-debug.apk</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://rainygoblin.github.io/2016/12/26/2016/12/changing-locking-screen-orientation-in-ionic-application/" data-id="cj01szm5o000x2p9qwqt4dqeg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://rainygoblin.github.io/2016/12/26/2016/12/changing-locking-screen-orientation-in-ionic-application/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://rainygoblin.github.io/2016/12/26/2016/12/changing-locking-screen-orientation-in-ionic-application/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2016/12/27/2016/12/Hello-Hammerjs/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Hello Hammerjs
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2016/12/25/2016/12/Ionic 2 Background Mode/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Ionic 2 Background Mode</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/13/2017/1/Hello-Jhipster/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/01/13/2017/1/Hello-Jhipster/" class="title">Hello Jhipster</a></p>
+                            <p class="item-date"><time datetime="2017-01-13T09:51:31.000Z" itemprop="datePublished">2017-01-13</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/01/12/2017/1/Hello-Maven/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2017/01/12/2017/1/Hello-Maven/" class="title">Hello Atom</a></p>
+                            <p class="item-date"><time datetime="2017-01-12T18:51:31.000Z" itemprop="datePublished">2017-01-12</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/30/2016/12/Hello-Promise-Observable/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/12/30/2016/12/Hello-Promise-Observable/" class="title">Hello Promise Observable</a></p>
+                            <p class="item-date"><time datetime="2016-12-30T22:42:40.000Z" itemprop="datePublished">2016-12-30</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/28/2016/12/Hello-Canvas/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/12/28/2016/12/Hello-Canvas/" class="title">Hello Canvas</a></p>
+                            <p class="item-date"><time datetime="2016-12-28T14:42:40.000Z" itemprop="datePublished">2016-12-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2016/12/27/2016/12/Hello-Hammerjs/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2016/12/27/2016/12/Hello-Hammerjs/" class="title">Hello Hammerjs</a></p>
+                            <p class="item-date"><time datetime="2016-12-27T22:46:19.000Z" itemprop="datePublished">2016-12-27</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">17</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/AngularJS-2/">AngularJS 2</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Background-Mode/">Background Mode</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Canvas/">Canvas</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Chrome-DevTools/">Chrome DevTools</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Cordova/">Cordova</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Github/">Github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hammerjs/">Hammerjs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Html-5/">Html 5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Idea/">Idea</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic/">Ionic</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ionic-2/">Ionic 2</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/">JavaScript</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Javascript/">Javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Jhipster/">Jhipster</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Observable/">Observable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Promiss/">Promiss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Travis/">Travis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TypeScript/">TypeScript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/blog/">blog</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/orientation/">orientation</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ready/">ready</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/self-calling/">self calling</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快捷键/">快捷键</a><span class="tag-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/AngularJS-2/" style="font-size: 10px;">AngularJS 2</a> <a href="/tags/Atom/" style="font-size: 13.33px;">Atom</a> <a href="/tags/Background-Mode/" style="font-size: 10px;">Background Mode</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/Chrome-DevTools/" style="font-size: 10px;">Chrome DevTools</a> <a href="/tags/Cordova/" style="font-size: 16.67px;">Cordova</a> <a href="/tags/Github/" style="font-size: 10px;">Github</a> <a href="/tags/Hammerjs/" style="font-size: 10px;">Hammerjs</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/Html-5/" style="font-size: 10px;">Html 5</a> <a href="/tags/Idea/" style="font-size: 10px;">Idea</a> <a href="/tags/Ionic/" style="font-size: 10px;">Ionic</a> <a href="/tags/Ionic-2/" style="font-size: 20px;">Ionic 2</a> <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.33px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 10px;">Javascript</a> <a href="/tags/Jhipster/" style="font-size: 10px;">Jhipster</a> <a href="/tags/Markdown/" style="font-size: 13.33px;">Markdown</a> <a href="/tags/Observable/" style="font-size: 10px;">Observable</a> <a href="/tags/Promiss/" style="font-size: 10px;">Promiss</a> <a href="/tags/Travis/" style="font-size: 10px;">Travis</a> <a href="/tags/TypeScript/" style="font-size: 10px;">TypeScript</a> <a href="/tags/blog/" style="font-size: 10px;">blog</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/orientation/" style="font-size: 10px;">orientation</a> <a href="/tags/ready/" style="font-size: 10px;">ready</a> <a href="/tags/self-calling/" style="font-size: 10px;">self calling</a> <a href="/tags/快捷键/" style="font-size: 10px;">快捷键</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2017 Kai Zhang<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    bp.src = '//push.zhanzhang.baidu.com/push.js';
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'http://rainygoblin.github.io/2016/12/26/2016/12/changing-locking-screen-orientation-in-ionic-application/';
+        
+        this.page.identifier = '2016/12/changing-locking-screen-orientation-in-ionic-application';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'hexo-theme-icarus' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
